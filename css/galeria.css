@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: url("/_img/psychonauts_background.webp");
+}
+
+header {
+  height: 80px;
+  border-radius: 20px;
+  margin: 150px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+header h1 {
+  text-align: center;
+  padding-top: 15px;
+  color: rgb(40, 74, 53);
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff;
+}
+.galeria-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 2vw;
+  padding: 0 2vw;
+  margin-top: 200px;
+}
+.galeria-personagem {
+  width: 240px;
+  border: 3px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(97, 97, 97, 0.4);
+  flex-grow: 1;
+  transition: transform 0.3s linear;
+  color: rgb(14, 65, 19);
+}
+.galeria-personagem:hover {
+  transform: scale(1.1);
+  color: rgb(7, 123, 96);
+  box-shadow: 0 0 10px #21f3bf, 0 0 40px #03f65c, 0 0 80px #035e24;
+  border: 3px;
+  border-radius: 10px;
+}
+.card-header {
+  height: 450px;
+  font-size: 10px;
+}
+.img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body h2 {
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  text-align: center;
+}
+.lista-personagens {
+  text-decoration: none;
+}
