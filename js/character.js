@@ -16,11 +16,8 @@ const getInfo = () => {
             $(Personagem).addClass('character-container');
             $('#personagem').html(Personagem);
 
-            let container = document.createElement('div');
-            $(container).addClass('character-container');
-
             let charImg = document.createElement('div');
-            $(charImg).addClass('img-container');
+            $(charImg).addClass('img-character-container');
             let img = document.createElement('img');
 
             let inf = document.createElement('div');
@@ -29,7 +26,7 @@ const getInfo = () => {
             let gen = document.createElement('p');
 
             let powers = document.createElement('div');
-            $(powers).addClass('power-container');
+            $(powers).addClass('powers');
             $(powers).html(createPowerList(data));
 
             $(img).attr('src',data.img);
@@ -40,11 +37,9 @@ const getInfo = () => {
             $(inf).append(name)
                     .append(gen);
 
-            $(container).append(charImg)
+            $(personagem).append(charImg)
                     .append(inf)
                     .append(powers);
-
-            $(Personagem).append(container);
         }
     });
 }
@@ -60,7 +55,7 @@ const createPowerList = (data) =>{
                 let describe = document.createElement('p');
                 
                 $(container).addClass('power-container');
-                $(imgContainer).addClass('img-container');
+                $(imgContainer).addClass('img-power-container');
                 $(img).attr('src',p.img);
                 $(name).addClass('power-name');
                 $(name).text(p.name);
