@@ -5,8 +5,9 @@ $(document).ready(() => {
 })
 
 
-const getName = (n) =>{
+const setName = (n) =>{
     localStorage.setItem('name', n);
+    console.log("aaaaa");
 
 }
 const getPersonagens = () => {
@@ -19,8 +20,6 @@ const getPersonagens = () => {
             $('#personagens').html(listPersonagens);
 
             data.forEach((p, i) => {
-                //console.log(p);
-                //console.log(i);
                 let per = document.createElement('a');
                 let li = document.createElement('div');
                 let card = document.createElement('div');
@@ -32,7 +31,7 @@ const getPersonagens = () => {
                 $(card).addClass('card');
                 $(cardHeader).addClass('card-header');
                 $(cardBody).addClass('card-body');
-                $(cardHeader).attr('id', `ch-pkm${i}`);
+                $(cardHeader).attr('id', `per${i}`);
                 $(cardBody).html(`<h2>${p.name}</h2>`);
                 $(card).append(cardHeader)
                     .append(cardBody);
@@ -40,14 +39,11 @@ const getPersonagens = () => {
                 $(dataHtml).addClass('img-top');
                 $(dataHtml).attr('src',p.img);
                 $(per).attr('href', 'character.html');
-                //$(per).attr('onClick', `getName("${p.name}")`);
-                per.addEventListener('click',()=> getName(p.name));                
-$(per).append(li);
-                //$(per).attr('href', character.html);
-                //per.href(character.html);
+                $(per).attr('onClick', "setName('"+p.name+"')")
+                //per.addEventListener('click',()=> setName(p.name));                
+                $(per).append(li);
                 $(listPersonagens).append(per);
                 cardHeader.append(dataHtml);
-                //console.log(p.img);
             });
         }
     });
