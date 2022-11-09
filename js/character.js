@@ -30,8 +30,8 @@ const getInfo = () => {
             $(powers).html(createPowerList(data));
 
             $(img).attr('src',data.img);
-            $(name).text(data.name);
-            $(gen).text(data.gender);
+            $(name).text("Nome: "+data.name);
+            $(gen).text("Gênero: " +data.gender);
 
             $(charImg).append(img);
             $(inf).append(name)
