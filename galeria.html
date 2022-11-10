@@ -11,7 +11,12 @@
     <body>
       <header>
           <h1>Galeria Personagens</h1>
-      </header>
+          <div class="pesquisar-personagem">
+          <input id="pesquisar" type="text" placeholder="Pesquisar Personagem">
+          <button class="btn-enviar-pesquisa" onclick= "buscar()">Enviar</button>
+          <button class="btn-enviar-pesquisa" onclick= "listar()">Limpar</button>
+          <a class="pesquisar-personagem" href=""></a> 
+     </header>
       <div id="personagens"><div id="powers"></div>
       </div>
   </body>
@@ -37,6 +42,7 @@
   ></script>
 
   <script src="/js/main.js"></script>
+      
 <!-- 
 <script>
   const setName = (n) =>{
