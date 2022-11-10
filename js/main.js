@@ -5,18 +5,27 @@ $(document).ready(() => {
     getPersonagens();
 })
 
-const buscar = () =>{
+const buscar = () => {
     let nome = $('#pesquisar').val();
-    URL_BUSCA += nome;
-    //console.log(nome);
-    $.ajax({
-        url: URL_BUSCA,
-        dataType: 'json',
-        success: (data) => {
-        //console.log(data);
-            let listPersonagens = document.createElement('div');
-            $(listPersonagens).addClass('galeria-container');
-            $('#personagens').html(listPersonagens);
+    if (nome == "Do a barrel roll") {
+        $('#body').css("transition", "2s");
+        $('#body').css("transform", "rotate(360deg)");
+        setTimeout(() => {
+            $('#body').css("transition", "");
+            $('#body').css("transform", "");
+        }, 2000)
+        console.log("aaaaa");
+    } else {
+        URL_BUSCA += nome;
+        //console.log(nome);
+        $.ajax({
+            url: URL_BUSCA,
+            dataType: 'json',
+            success: (data) => {
+                //console.log(data);
+                let listPersonagens = document.createElement('div');
+                $(listPersonagens).addClass('galeria-container');
+                $('#personagens').html(listPersonagens);
 
                 let per = document.createElement('a');
                 let li = document.createElement('div');
@@ -35,27 +44,29 @@ const buscar = () =>{
                     .append(cardBody);
                 $(li).append(card);
                 $(dataHtml).addClass('img-top');
-                $(dataHtml).attr('src',data.img);
+                $(dataHtml).attr('src', data.img);
                 $(per).attr('href', 'character.html');
-                $(per).attr('onClick', "setName('"+data.name+"')")
+                $(per).attr('onClick', "setName('" + data.name + "')")
                 //per.addEventListener('click',()=> setName(p.name));                
                 $(per).append(li);
                 $(listPersonagens).append(per);
                 cardHeader.append(dataHtml);
-            
-        }
-    });
+
+            }
+        });
+    }
+
+
 
 }
 
-const listar = () =>{
+const listar = () => {
     $('#pesquisar').val('');
     getPersonagens();
 }
 
-const setName = (n) =>{
+const setName = (n) => {
     localStorage.setItem('name', n);
-    console.log("aaaaa");
 
 }
 const getPersonagens = () => {
@@ -85,9 +96,9 @@ const getPersonagens = () => {
                     .append(cardBody);
                 $(li).append(card);
                 $(dataHtml).addClass('img-top');
-                $(dataHtml).attr('src',p.img);
+                $(dataHtml).attr('src', p.img);
                 $(per).attr('href', 'character.html');
-                $(per).attr('onClick', "setName('"+p.name+"')")
+                $(per).attr('onClick', "setName('" + p.name + "')")
                 //per.addEventListener('click',()=> setName(p.name));                
                 $(per).append(li);
                 $(listPersonagens).append(per);
